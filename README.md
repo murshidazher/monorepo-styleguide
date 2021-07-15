@@ -10,6 +10,10 @@ To initialize lerna to manage your mono repo
 > npx lerna init
 ```
 
+```sh
+> yarn add -D @babel/cli @babel/core @babel/plugin-proposal-object-rest-spread @babel/plugin-syntax-object-rest-spread @babel/plugin-transform-destructuring @babel/preset-env @babel/preset-react babel-jest babel-runtime eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react husky jest jest-styled-components lint-staged react react-dom react-test-renderer regenerator-runtime
+```
+
 ## Creating Packages
 
 ```sh
@@ -42,6 +46,26 @@ Also, we need to add a source to the package.json file:
 ```
 
 Let’s create one file called index.js inside our packages/components/lib directory.
+
+## To add a new package
+
+```sh
+> lerna create styled-config
+```
+
+```sh
+> yarn add -D @babel/core babel-loader microbundle jest @babel/core @babel/plugin-proposal-object-rest-spread @babel/preset-env @babel/preset-react babel-core babel-jest
+```
+
+Add the scripts
+
+```json
+// package.json
+...
+"dev": "microbundle watch --jsx React.createElement lib/*.js",
+"prepublish": "babel --root-mode upward src --out-dir lib",
+"test": "jest --coverage",
+```
 
 ## Independent vs. Managed
 

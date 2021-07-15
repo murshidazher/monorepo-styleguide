@@ -1,0 +1,26 @@
+{
+  "name": "monorepo-button-component",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "murshidazher <murshidazher@yahoo.com>",
+  "homepage": "https://github.com/murshidazher/monorepo-styleguide#readme",
+  "license": "MIT",
+  "main": "lib/monorepo-button-component.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murshidazher/monorepo-styleguide.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/murshidazher/monorepo-styleguide/issues"
+  }
+}
