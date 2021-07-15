@@ -1,7 +1,8 @@
 # monorepo-styleguide
+
 A monorepo styleguide using lerna, storybook and etc..
 
-## Up & Running
+## Setting Up from Scratch
 
 To initialize lerna to manage your mono repo
 
@@ -128,5 +129,13 @@ module.exports = function ({ config }) {
 
   return config;
 };
+```
 
+## Up & Running
+
+```sh
+> yarn i
+> lerna bootstrap
+> cd .storybook && yarn i
+> yarn start
 ```
