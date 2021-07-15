@@ -3,7 +3,13 @@
   "description": "The monorepo styleguide for react components made with styled-components",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "jest --coverage --collectCoverageFrom=packages/**/src/**/*.js"
+    "dev:bootstrap": "lerna bootstrap",
+    "dev:storybook": "cd .storybook && yarn install",
+    "test": "jest --coverage --collectCoverageFrom=packages/**/src/**/*.js",
+    "lint": "eslint \"{,!(node_modules)/**/}*.{js,ts,tsx}\" --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier \"{,!(node_modules)/**/}*.{js,ts,tsx}\" --config .prettierrc.js",
+    "format:fix": "npm run format -- --write"
   },
   "license": "MIT",
   "author": "Murshid Azher <hello@murshidazher.com>",

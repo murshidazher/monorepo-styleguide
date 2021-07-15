@@ -1,0 +1,24 @@
+{
+  "name": "storybook",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Murshid Azher <hello@murshidazher.com>",
+  "scripts": {
+    "start": "yarn run storybook",
+    "storybook": "start-storybook -p 9001 -c .",
+    "build-storybook": "build-storybook -c . -o ../docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-storysource": "^6.3.4",
+    "@storybook/addons": "^6.3.4",
+    "@storybook/react": "^6.3.4",
+    "@storybook/source-loader": "^6.3.4",
+    "babel-loader": "^8.2.2",
+    "storybook-readme": "^5.0.9",
+    "styled-components": "^5.3.0"
+  }
+}

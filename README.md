@@ -50,7 +50,7 @@ Let’s create one file called index.js inside our packages/components/lib direc
 ## To add a new package
 
 ```sh
-> lerna create styled-config
+> lerna create monorepo-config
 ```
 
 ```sh
@@ -67,6 +67,17 @@ Add the scripts
 "test": "jest --coverage",
 ```
 
+Let’s now connect our packages. To do that, we can simply add the package you need to make as dependency in the other package’s package.json file:
+
+```
+// packages/<component_to_add>/package.json
+
+"dependencies": {
+   ..
+   "components": "0.0.0"
+ }
+```
+
 ## Independent vs. Managed
 
 > We can use the [atlassian/lerna-semantic-release](https://github.com/atlassian/lerna-semantic-release) to manage the version.
@@ -78,8 +89,12 @@ Independent packages can be increment the version numbers individually while man
 We’ll now install Storybook and build our React components with it.
 
 ```sh
-> npx -p @storybook/cli sb init --type react
+> mkdir temp_storybook
+> cd temp_storybook && npx -p @storybook/cli sb init --type react
+# move the all the content and package.json inside the `.storybook` directory and move the `.storybook` to root directory. Then remove the `temp_storybook` directory.
 ```
+
+You should now be able to run Storybook locally by running npm run storybook or if you prefer yarn storybook.
 
 Adds two storybook scripts
 
@@ -89,4 +104,29 @@ Adds two storybook scripts
    "storybook": "start-storybook -p 6006",
    "build-storybook": "build-storybook"
  },
+```
+
+Install storybook dependencies,
+
+```sh
+yarn add -D @babel/core @storybook/addon-actions @storybook/addon-links @storybook/addon-storysource @storybook/addons @storybook/react babel-loader storybook-readme styled-components @storybook/source-loader
+```
+
+Add `webpack.config.js`,
+
+```js
+const path = require('path');
+
+module.exports = function ({ config }) {
+  config.module.rules.push({
+    // test: /\.stories\.jsx?$/,
+    test: /\.jsx?$/,
+    include: path.resolve('./stories'),
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    enforce: 'pre',
+  });
+
+  return config;
+};
+
 ```

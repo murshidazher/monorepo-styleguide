@@ -1,4 +1,4 @@
-module.exports = function (api) {
+module.exports = (api) => {
   api.cache(true);
 
   return {
@@ -8,12 +8,12 @@ module.exports = function (api) {
     ],
     overrides: [
       {
-        test: '.packages/styled-config/src/**/*.js',
+        test: '.packages/monorepo-config/src/**/*.js',
         presets: ['@babel/env'],
         plugins: [
-          '@babel/plugin-proposal-object-rest-spread'
+          '@babel/plugin-proposal-object-rest-spread',
         ],
-      }
-    ]
+      },
+    ],
   };
 };
