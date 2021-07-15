@@ -2,6 +2,8 @@
 
 A monorepo styleguide using lerna, storybook and etc..
 
+- [lerna documentation](https://lerna.js.org/)
+
 ## Setting Up from Scratch
 
 To initialize lerna to manage your mono repo
